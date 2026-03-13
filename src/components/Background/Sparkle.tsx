@@ -17,8 +17,8 @@ export function generateSparkles(count: number) {
   return Array.from({ length: count }, (_, i) => {
     const col = i % cols;
     const row = Math.floor(i / cols);
-    const baseX = (col + 0.5) / cols * 100;
-    const baseY = (row + 0.5) / rows * 100;
+    const baseX = ((col + 0.5) / cols) * 100;
+    const baseY = ((row + 0.5) / rows) * 100;
     const jitter = 4; // ±4%
     return {
       x: `${baseX + (Math.random() * 2 - 1) * jitter}%`,

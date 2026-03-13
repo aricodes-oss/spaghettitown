@@ -1,7 +1,7 @@
 'use client';
 
-import { useMemo } from 'react';
 import { useMatches } from '@mantine/core';
+import { useMemo } from 'react';
 
 import styles from './Background.module.css';
 import { Sparkle, generateSparkles } from './Sparkle';
