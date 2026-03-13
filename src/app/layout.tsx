@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import Background from "@/components/Background";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,7 +20,10 @@ export default function RootLayout({
 				<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 			</head>
 			<body>
-				<MantineProvider>{children}</MantineProvider>
+				<MantineProvider>
+					<Background />
+					{children}
+				</MantineProvider>
 			</body>
 		</html>
 	);
