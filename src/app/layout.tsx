@@ -4,7 +4,7 @@ import { ColorSchemeScript, MantineProvider, colorsTuple, createTheme, rem } fro
 import type { Metadata } from 'next';
 import { Gaegu } from 'next/font/google';
 
-import './globals.css';
+import './globals.scss';
 
 const gaegu = Gaegu({
   subsets: ['latin'],
