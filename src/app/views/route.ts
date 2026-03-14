@@ -1,10 +1,10 @@
 import Plausible from 'plausible';
 
-const key = process.env.PLAUSIBLE_API_KEY!;
 const site = 'spaghettitown.xyz';
 const url = 'https://plausible.aricodes.net';
 
 export async function GET() {
+  const key = process.env.PLAUSIBLE_API_KEY!;
   const today = new Date().toISOString().split('T')[0];
   const plausible = new Plausible(key, site, url);
   const results = await plausible.getAggregate(
