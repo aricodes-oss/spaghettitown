@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import { ColorSchemeScript, MantineProvider, colorsTuple, createTheme, rem } from '@mantine/core';
 import type { Metadata } from 'next';
 import { Gaegu } from 'next/font/google';
+import Script from 'next/script';
 
 import './globals.scss';
 
@@ -44,6 +45,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <ColorSchemeScript />
+        <Script
+          defer
+          data-domain="spaghettitown.xyz"
+          src="https://plausible.aricodes.net/js/script.outbound-links.js"
+        />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body className={gaegu.className}>

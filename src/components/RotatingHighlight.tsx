@@ -1,7 +1,6 @@
 'use client';
 
 import { useMantineTheme } from '@mantine/core';
-import { motion } from 'motion/react';
 import { useEffect, useMemo, useState } from 'react';
 
 export interface RotatingHighlightProps {
