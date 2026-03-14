@@ -41,6 +41,7 @@ export function Sparkle({ delay, x, y, size = 16, scale = 1, duration = 0.6 }: S
         width: scaledSize,
         height: scaledSize,
         transformOrigin: 'center',
+        lineHeight: 0,
       }}
       animate={{ scale: [0, 1, 0] }}
       transition={{
