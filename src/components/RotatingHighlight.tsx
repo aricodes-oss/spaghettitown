@@ -7,17 +7,19 @@ export interface RotatingHighlightProps {
   content: string;
   delay?: number;
   color?: string;
+  reverse?: boolean;
 }
 
 export default function RotatingHighlight({
   content,
   delay = 750,
   color,
+  reverse = false,
   ...props
 }: RotatingHighlightProps) {
   const theme = useMantineTheme();
-  const [highlighted, setHighlighted] = useState(0);
   const segments = useMemo(() => content.split(''), [content]);
+  const [highlighted, setHighlighted] = useState(reverse ? segments.length - 1 : 0);
 
   // Default to pink
   if (!color) {
@@ -26,15 +28,15 @@ export default function RotatingHighlight({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (highlighted >= segments.length - 1) {
-        setHighlighted(0);
+      if (reverse) {
+        setHighlighted(highlighted <= 0 ? segments.length - 1 : highlighted - 1);
       } else {
-        setHighlighted(highlighted + 1);
+        setHighlighted(highlighted >= segments.length - 1 ? 0 : highlighted + 1);
       }
     }, delay);
 
     return () => clearInterval(interval);
-  }, [highlighted, setHighlighted, segments.length, delay]);
+  }, [highlighted, setHighlighted, segments.length, delay, reverse]);
 
   const styles = { display: 'inline-block' };
 

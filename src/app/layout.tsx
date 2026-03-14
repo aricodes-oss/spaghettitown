@@ -20,15 +20,8 @@ const theme = createTheme({
   fontFamilyMonospace: gaegu.style.fontFamily,
   headings: {
     fontFamily: gaegu.style.fontFamily,
-    sizes: {
-      h1: { fontSize: rem(96) },
-      h2: { fontSize: rem(72) },
-      h3: { fontSize: rem(64) },
-      h4: { fontSize: rem(48) },
-      h5: { fontSize: rem(42) },
-      h6: { fontSize: rem(32) },
-    },
   },
+  scale: 2.5,
 });
 
 export const metadata: Metadata = {
