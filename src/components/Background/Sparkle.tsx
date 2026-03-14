@@ -9,6 +9,7 @@ interface SparkleProps {
   y: string;
   size?: number;
   scale?: number;
+  duration?: number;
 }
 
 export function generateSparkles(count: number) {
@@ -29,7 +30,7 @@ export function generateSparkles(count: number) {
   });
 }
 
-export function Sparkle({ delay, x, y, size = 16, scale = 1 }: SparkleProps) {
+export function Sparkle({ delay, x, y, size = 16, scale = 1, duration = 0.6 }: SparkleProps) {
   const scaledSize = size * scale;
   return (
     <motion.div
@@ -43,7 +44,7 @@ export function Sparkle({ delay, x, y, size = 16, scale = 1 }: SparkleProps) {
       }}
       animate={{ scale: [0, 1, 0] }}
       transition={{
-        duration: 0.6,
+        duration,
         delay,
         repeat: Infinity,
         repeatDelay: delay,

@@ -1,0 +1,14 @@
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--mantine-color-pink-1);
+  z-index: -1;
+}
