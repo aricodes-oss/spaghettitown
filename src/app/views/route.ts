@@ -1,23 +1,35 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import Plausible from 'plausible';
 
 const site = 'spaghettitown.xyz';
-const url = 'https://plausible.aricodes.net';
+const baseUrl = 'https://plausible.aricodes.net';
 
+interface PlausibleResponse {
+  results: {
+    visitors: {
+      value: number;
+    };
+  };
+}
+
+// Using fetch directly instead of the `plausible` npm package because it
+// depends on undici, which is incompatible with the Cloudflare Workers runtime.
 export async function GET() {
-  const key =
-    process.env.PLAUSIBLE_API_KEY ??
-    (await getCloudflareContext()).env.PLAUSIBLE_API_KEY;
+  const key = process.env.PLAUSIBLE_API_KEY ?? (await getCloudflareContext()).env.PLAUSIBLE_API_KEY;
   const today = new Date().toISOString().split('T')[0];
-  const plausible = new Plausible(key, site, url);
-  const results = await plausible.getAggregate(
-    // @ts-expect-error 'custom' is accepted by the API but not in the type definition
-    'custom',
-    'visitors',
-    null,
-    null,
-    `2005-01-01,${today}`,
-  );
+  const params = new URLSearchParams({
+    period: 'custom',
+    metrics: 'visitors',
+    date: `2005-01-01,${today}`,
+    site_id: site,
+  });
+  const response = await fetch(`${baseUrl}/api/v1/stats/aggregate?${params}`, {
+    headers: {
+      Authorization: `Bearer ${key}`,
+    },
+  });
+  const {
+    results: { visitors },
+  } = (await response.json()) as PlausibleResponse;
 
-  return Response.json(results);
+  return Response.json(visitors);
 }
