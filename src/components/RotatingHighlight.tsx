@@ -7,14 +7,12 @@ import { useEffect, useMemo, useState } from 'react';
 export interface RotatingHighlightProps {
   content: string;
   delay?: number;
-  duration?: number;
   color?: string;
 }
 
 export default function RotatingHighlight({
   content,
   delay = 750,
-  duration = 1.0,
   color,
   ...props
 }: RotatingHighlightProps) {
@@ -42,14 +40,8 @@ export default function RotatingHighlight({
   const styles = { display: 'inline-block' };
 
   return segments.map((char, idx) => (
-    <motion.span
-      style={idx === highlighted ? { color, ...styles } : styles}
-      animate={{ rotate: [0, 360] }}
-      transition={{ duration, delay: idx * delay, repeatDelay: 1.0, repeat: Infinity }}
-      key={idx}
-      {...props}
-    >
+    <span style={idx === highlighted ? { color, ...styles } : styles} key={idx} {...props}>
       {char}
-    </motion.span>
+    </span>
   ));
 }
