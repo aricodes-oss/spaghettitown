@@ -1,5 +1,10 @@
 @import '@mantine/core/styles.css';
 
+body {
+  height: 100vh;
+  overflow: auto;
+}
+
 @media (max-width: mantine.$mantine-breakpoint-sm) {
   body {
     --mantine-h1-font-size: 3rem;

@@ -69,7 +69,7 @@ export function Header() {
         </Box>
       </Flex>
 
-      <Title ta="center" order={4} style={{ color: 'white' }}>
+      <Title ta="center" order={4} style={{ color: 'white' }} pb={{ base: 0, md: 8 }}>
         The OFFICIAL cyber-home of the best fem&them rock band!
       </Title>
     </>
