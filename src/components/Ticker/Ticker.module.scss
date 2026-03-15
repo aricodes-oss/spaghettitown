@@ -1,0 +1,13 @@
+$background: #46dee3bb;
+
+.ticker {
+  width: 100%;
+  background: $background;
+  border: 2px solid white;
+  border-radius: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+
+  align-items: center;
+}

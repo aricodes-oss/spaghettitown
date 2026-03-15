@@ -1,11 +1,13 @@
 import Background from '@/components/Background';
 import Header from '@/components/Header';
 import Nav from '@/components/Nav';
+import { Ticker } from '@/components/Ticker/Ticker';
 import {
   ColorSchemeScript,
   Flex,
   MantineProvider,
   Stack,
+  Text,
   colorsTuple,
   createTheme,
 } from '@mantine/core';
@@ -69,10 +71,16 @@ export default function RootLayout({
               align="stretch"
               style={{ flexGrow: 1 }}
               px={{ base: 4, [desktop]: 12 }}
-              gap={0}
+              gap={{ base: 4, [desktop]: 8 }}
             >
               <Nav />
-              <div>{children}</div>
+
+              <Stack gap={2} style={{ flexGrow: 1 }}>
+                <Ticker>
+                  <Text c="black">What A Shame (Demo) out now on your streaming service!</Text>
+                </Ticker>
+                {children}
+              </Stack>
             </Flex>
           </Stack>
         </MantineProvider>
