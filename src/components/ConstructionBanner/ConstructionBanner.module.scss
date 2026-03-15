@@ -3,6 +3,8 @@ $text: black;
 $border: black;
 $borderWidth: 2px;
 
+$rotationSpeed: 1.1s;
+
 .root {
   background-color: $background;
   color: $text;
@@ -12,11 +14,11 @@ $borderWidth: 2px;
 }
 
 .coneLeft {
-  animation: tilt-right 1s ease-in-out infinite;
+  animation: tilt-right $rotationSpeed ease-in-out infinite;
 }
 
 .coneRight {
-  animation: tilt-left 1s ease-in-out infinite;
+  animation: tilt-left $rotationSpeed ease-in-out infinite;
 }
 
 @keyframes tilt-right {

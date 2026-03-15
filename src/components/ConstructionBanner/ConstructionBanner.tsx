@@ -6,7 +6,7 @@ import { IconTrafficCone } from '@tabler/icons-react';
 import styles from './ConstructionBanner.module.scss';
 
 export function ConstructionBanner() {
-  const coneProps = { size: 32, color: '#ff7c01' };
+  const coneProps = { size: 32, color: '#ff4400' };
 
   return (
     <Box className={styles.root} ta="center" p={8} mt={8}>
