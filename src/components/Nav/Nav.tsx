@@ -16,7 +16,13 @@ const links = [
   { label: 'GUESTBOOK', href: '/guestbook' },
 ];
 
-function NavLinks({ pathname, onClick }: { pathname: string; onClick?: () => void }) {
+interface NavLinksProps {
+  pathname: string;
+  onClick?: () => void;
+  size?: string;
+}
+
+function NavLinks({ pathname, onClick, size = 'xs' }: NavLinksProps) {
   return links.map(({ href, label }) => (
     <Anchor
       key={href}
@@ -24,7 +30,7 @@ function NavLinks({ pathname, onClick }: { pathname: string; onClick?: () => voi
       href={href}
       c="white"
       underline={href === pathname ? 'always' : 'hover'}
-      size="xs"
+      size={size}
       fw={700}
       onClick={onClick}
     >
@@ -47,7 +53,7 @@ export function Nav() {
           Links {opened ? '^' : 'v'}
         </Text>
         <Collapse in={opened} px={4}>
-          <NavLinks pathname={pathname} onClick={toggle} />
+          <NavLinks pathname={pathname} onClick={toggle} size="md" />
         </Collapse>
       </Stack>
 

@@ -2,16 +2,16 @@ $text: #ffffff;
 $borderWidth: 2px;
 
 .nav {
-	color: $text;
-	background-color: #b050ce;
-	border-radius: $borderWidth;
-	border: $borderWidth solid white;
-	cursor: pointer;
+  color: $text;
+  background-color: #b050ce;
+  border-radius: $borderWidth;
+  border: $borderWidth solid white;
+  cursor: pointer;
 }
 
 .desktopNav {
-	color: $text;
-	background-color: #b150cea8;
-	border-radius: calc($borderWidth * 2);
-	border: $borderWidth solid white;
+  color: $text;
+  background-color: #b150cea8;
+  border-radius: calc($borderWidth * 2);
+  border: $borderWidth solid white;
 }
