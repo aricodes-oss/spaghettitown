@@ -1,5 +1,5 @@
 import { getVisitors } from '@/api/plausible';
 
 export async function GET() {
-	return Response.json(await getVisitors());
+  return Response.json(await getVisitors());
 }

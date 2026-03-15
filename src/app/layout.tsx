@@ -1,4 +1,5 @@
 import Background from '@/components/Background';
+import Flash from '@/components/Flash';
 import Header from '@/components/Header';
 import Nav from '@/components/Nav';
 import { Ticker } from '@/components/Ticker/Ticker';
@@ -77,7 +78,12 @@ export default function RootLayout({
 
               <Stack gap={2} style={{ flexGrow: 1 }}>
                 <Ticker>
-                  <Text c="black">What A Shame (Demo) out now on your streaming service!</Text>
+                  <Text c="black">
+                    <Flash from="#000000" to="#ff0000">
+                      What A Shame (Demo)
+                    </Flash>{' '}
+                    out now on your streaming service!
+                  </Text>
                 </Ticker>
                 {children}
               </Stack>
