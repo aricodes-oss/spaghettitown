@@ -3,12 +3,14 @@
 import { Anchor, Collapse, Stack, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import styles from './Mobile.module.scss';
 import { NavProps } from './Nav';
 
 export default function Mobile({ links }: NavProps) {
   const [opened, { toggle }] = useDisclosure(false);
+  const pathname = usePathname();
   return (
     <Stack align="center" gap={0} className={styles.nav}>
       <Text c="white" size="xs" onClick={toggle}>
@@ -21,7 +23,7 @@ export default function Mobile({ links }: NavProps) {
             component={Link}
             href={href}
             c="white"
-            underline="never"
+            underline={href === pathname ? 'always' : 'never'}
             onClick={toggle}
           >
             <Text>{label}</Text>

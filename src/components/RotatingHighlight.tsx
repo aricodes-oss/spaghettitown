@@ -40,9 +40,13 @@ export default function RotatingHighlight({
 
   const styles = { display: 'inline-block' };
 
-  return segments.map((char, idx) => (
-    <span style={idx === highlighted ? { color, ...styles } : styles} key={idx} {...props}>
-      {char}
+  return (
+    <span style={{ whiteSpace: 'nowrap' }}>
+      {segments.map((char, idx) => (
+        <span style={idx === highlighted ? { color, ...styles } : styles} key={idx} {...props}>
+          {char}
+        </span>
+      ))}
     </span>
-  ));
+  );
 }
