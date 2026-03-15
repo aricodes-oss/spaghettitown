@@ -1,0 +1,26 @@
+$background: #ffb4e994;
+$border: #ffffff;
+$borderWidth: 2px;
+$text: #ffffff;
+
+.root {
+  background-color: $background;
+  border: $borderWidth solid $border;
+  border-radius: calc($borderWidth * 2);
+  flex-grow: 1;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #9652a7;
+  }
+
+  .art {
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 2px solid white;
+  }
+}

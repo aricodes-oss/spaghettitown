@@ -14,4 +14,5 @@ $borderWidth: 2px;
   background-color: #b150cea8;
   border-radius: calc($borderWidth * 2);
   border: $borderWidth solid white;
+  flex-shrink: 0;
 }
