@@ -1,9 +1,12 @@
 'use client';
 
-import { useMatches } from '@mantine/core';
+import { Anchor, Box, Collapse, Group, Stack, Text } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import type { ReactNode } from 'react';
 
-import Desktop from './Desktop';
-import Mobile from './Mobile';
+import styles from './Nav.module.scss';
 
 const links = [
   { label: 'HOME', href: '/' },
@@ -13,12 +16,47 @@ const links = [
   { label: 'GUESTBOOK', href: '/guestbook' },
 ];
 
-export interface NavProps {
-  links: typeof links;
+function NavLinks({ pathname, onClick }: { pathname: string; onClick?: () => void }) {
+  return links.map(({ href, label }) => (
+    <Anchor
+      key={href}
+      component={Link}
+      href={href}
+      c="white"
+      underline={href === pathname ? 'always' : 'hover'}
+      size="xs"
+      fw={700}
+      onClick={onClick}
+    >
+      <Group justify="space-between">
+        <span>{'=>'}</span> <span>{label}</span> <span>{'<='}</span>
+      </Group>
+    </Anchor>
+  ));
 }
 
 export function Nav() {
-  const NavComponent = useMatches({ base: Mobile, md: Desktop });
+  const [opened, { toggle }] = useDisclosure(false);
+  const pathname = usePathname();
 
-  return <NavComponent links={links} />;
+  return (
+    <>
+      {/* Mobile nav */}
+      <Stack align="center" gap={0} className={styles.nav} hiddenFrom="md">
+        <Text c="white" size="xs" onClick={toggle}>
+          Links {opened ? '^' : 'v'}
+        </Text>
+        <Collapse in={opened} px={4}>
+          <NavLinks pathname={pathname} onClick={toggle} />
+        </Collapse>
+      </Stack>
+
+      {/* Desktop nav */}
+      <Box className={styles.desktopNav} p={{ base: 4, md: 8 }} visibleFrom="md">
+        <Stack gap={2}>
+          <NavLinks pathname={pathname} />
+        </Stack>
+      </Box>
+    </>
+  );
 }
