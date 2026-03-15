@@ -1,6 +1,6 @@
 'use client';
 
-import { Anchor, Button, Collapse, Stack, Text } from '@mantine/core';
+import { Anchor, Collapse, Stack, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 

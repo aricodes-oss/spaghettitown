@@ -1,6 +1,6 @@
 'use client';
 
-import { Anchor, Box, Flex, Group, Stack, Text } from '@mantine/core';
+import { Anchor, Box, Group, Stack } from '@mantine/core';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
