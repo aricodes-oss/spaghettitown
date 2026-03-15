@@ -29,7 +29,7 @@ const theme = createTheme({
   headings: {
     fontFamily: gaegu.style.fontFamily,
   },
-  scale: 2.5,
+  scale: 2,
 });
 
 export const metadata: Metadata = {
