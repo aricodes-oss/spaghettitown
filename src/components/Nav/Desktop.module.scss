@@ -1,10 +1,10 @@
-$background: #a63dc6;
+$background: #b050ce;
 $text: #ffffff;
 $borderWidth: 2px;
 
 .nav {
   color: $text;
   background-color: $background;
-  border-radius: $borderWidth;
+  border-radius: calc($borderWidth * 2);
   border: $borderWidth solid white;
 }

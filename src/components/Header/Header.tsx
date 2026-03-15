@@ -10,7 +10,7 @@ import styles from './Header.module.scss';
 
 const MotionFlame = motion.create(IconFlameFilled);
 
-const ORANGE = '#CC5500';
+const ORANGE = '#ff7a46';
 const WHITE = '#FFFFFF';
 
 const flickerKeyframes = [
@@ -48,7 +48,7 @@ export function Header() {
           <MotionFlame
             {...flameProps}
             animate={{ color: flickerKeyframes }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
           />
         </Box>
 
@@ -64,7 +64,7 @@ export function Header() {
           <MotionFlame
             {...flameProps}
             animate={{ color: flickerKeyframes }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'linear', delay: 0.5 }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'linear', delay: 0.5 }}
           />
         </Box>
       </Flex>
