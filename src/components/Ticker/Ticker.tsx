@@ -7,7 +7,7 @@ import styles from './Ticker.module.scss';
 export function Ticker({ children, speed = 50 }: { children: ReactNode; speed?: number }) {
   return (
     <div className={styles.ticker}>
-      <marquee scrollDelay={speed}>{children}</marquee>
+      <marquee scrolldelay={speed}>{children}</marquee>
     </div>
   );
 }

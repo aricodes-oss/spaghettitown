@@ -4,7 +4,7 @@ declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       marquee: React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & { scrollDelay?: number },
+        React.HTMLAttributes<HTMLElement> & { scrolldelay?: number },
         HTMLElement
       >;
     }

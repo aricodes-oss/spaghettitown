@@ -1,5 +1,6 @@
 'use client';
 
+import ConstructionBanner from '@/components/ConstructionBanner';
 import { Anchor, Box, Flex, List, Text, Title } from '@mantine/core';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -28,7 +29,7 @@ export default function Home() {
               <Text fw={700} span>
                 03/??:
               </Text>{' '}
-              Talk Talk (Demo) coming out
+              Talk Talk (Demo) probably coming out
             </List.Item>
             <List.Item>
               <Text fw={700} span>
@@ -36,7 +37,7 @@ export default function Home() {
               </Text>{' '}
               <Anchor
                 component={Link}
-                c="purple"
+                c="violet"
                 href="https://distrokid.com/hyperfollow/chasingclarity2/what-a-shame-demo"
               >
                 What A Shame (Demo)
@@ -46,6 +47,7 @@ export default function Home() {
           </List>
         </Box>
       </Flex>
+      <ConstructionBanner />
     </Box>
   );
 }

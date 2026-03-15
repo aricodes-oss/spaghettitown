@@ -4,7 +4,6 @@ import { Anchor, Box, Collapse, Group, Stack, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import type { ReactNode } from 'react';
 
 import styles from './Nav.module.scss';
 
