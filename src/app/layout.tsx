@@ -5,6 +5,7 @@ import Nav from '@/components/Nav';
 import { Ticker } from '@/components/Ticker/Ticker';
 import {
   ColorSchemeScript,
+  Container,
   Flex,
   MantineProvider,
   Stack,
@@ -63,32 +64,34 @@ export default function RootLayout({
         <MantineProvider theme={theme}>
           <Background />
 
-          <Stack style={{ height: '100%' }} justify="flex-start" py={4} gap={0}>
-            <Header />
+          <Container size="sm">
+            <Stack style={{ height: '100%' }} justify="flex-start" py={4} gap={0}>
+              <Header />
 
-            <Flex
-              direction={{ base: 'column', [desktop]: 'row' }}
-              justify={{ base: 'flex-start', [desktop]: 'space-between' }}
-              align="stretch"
-              style={{ flexGrow: 1 }}
-              px={{ base: 4, [desktop]: 12 }}
-              gap={{ base: 4, [desktop]: 8 }}
-            >
-              <Nav />
+              <Flex
+                direction={{ base: 'column', [desktop]: 'row' }}
+                justify={{ base: 'flex-start', [desktop]: 'space-between' }}
+                align="stretch"
+                style={{ flexGrow: 1 }}
+                px={{ base: 4, [desktop]: 12 }}
+                gap={{ base: 4, [desktop]: 8 }}
+              >
+                <Nav />
 
-              <Stack gap={2} style={{ flexGrow: 1 }}>
-                <Ticker>
-                  <Text c="black">
-                    <Flash from="#000000" to="#ff0000">
-                      What A Shame (Demo)
-                    </Flash>{' '}
-                    out now on your streaming service!
-                  </Text>
-                </Ticker>
-                {children}
-              </Stack>
-            </Flex>
-          </Stack>
+                <Stack gap={2} style={{ flexGrow: 1 }}>
+                  <Ticker>
+                    <Text c="black">
+                      <Flash from="#000000" to="#ff0000">
+                        What A Shame (Demo)
+                      </Flash>{' '}
+                      out now on your streaming service!
+                    </Text>
+                  </Ticker>
+                  {children}
+                </Stack>
+              </Flex>
+            </Stack>
+          </Container>
         </MantineProvider>
       </body>
     </html>
