@@ -1,9 +1,8 @@
-'use client';
-
 import ConstructionBanner from '@/components/ConstructionBanner';
-import { Anchor, Box, Flex, List, Text, Title } from '@mantine/core';
+import ViewCounter from '@/components/ViewCounter';
+import { Anchor, Box, Flex, Group, List, ListItem, Text, Title } from '@mantine/core';
+import { IconBolt, IconMusic } from '@tabler/icons-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import demoArt from '../../public/demo-art.jpg';
 import styles from './Home.module.scss';
@@ -22,32 +21,42 @@ export default function Home() {
           <Title order={4} ta="center">
             WELCOME TO OUR WEB PAGE!!!!!
           </Title>
-          <Text>We are Choosing Clarity!!! Only one of us can play guitar.</Text>
+
+          <Text size="sm">We are Choosing Clarity!!! Only one of us can play guitar.</Text>
+
           <Text fw={700}>UPDATES:</Text>
+
           <List icon="- ">
-            <List.Item>
+            <ListItem>
               <Text fw={700} span>
                 03/??:
               </Text>{' '}
               Talk Talk (Demo) probably coming out
-            </List.Item>
-            <List.Item>
+            </ListItem>
+            <ListItem>
               <Text fw={700} span>
                 01/26:
               </Text>{' '}
               <Anchor
-                component={Link}
                 c="violet"
                 href="https://distrokid.com/hyperfollow/chasingclarity2/what-a-shame-demo"
+                target="_blank"
               >
                 What A Shame (Demo)
               </Anchor>{' '}
               released!!!
-            </List.Item>
+            </ListItem>
           </List>
         </Box>
       </Flex>
+
       <ConstructionBanner />
+
+      <Group justify="space-between" align="center" gap={0}>
+        <IconMusic size={48} color="blue" />
+        <ViewCounter />
+        <IconBolt size={48} color="yellow" />
+      </Group>
     </Box>
   );
 }

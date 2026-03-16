@@ -14,7 +14,9 @@ interface PlausibleResponse {
 // Using fetch directly instead of the `plausible` npm package because it
 // depends on undici, which is incompatible with the Cloudflare Workers runtime.
 export async function getVisitors() {
-  const key = process.env.PLAUSIBLE_API_KEY ?? (await getCloudflareContext()).env.PLAUSIBLE_API_KEY;
+  const key =
+    process.env.PLAUSIBLE_API_KEY ??
+    (await getCloudflareContext({ async: true })).env.PLAUSIBLE_API_KEY;
   const today = new Date().toISOString().split('T')[0];
   const params = new URLSearchParams({
     period: 'custom',
