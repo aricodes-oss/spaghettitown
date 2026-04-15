@@ -29,9 +29,16 @@ export default function Home() {
           <List icon="- ">
             <ListItem>
               <Text fw={700} span>
-                03/??:
+                04/22:
               </Text>{' '}
-              Talk Talk (Demo) probably coming out
+              <Anchor
+                c="violet"
+                href="https://distrokid.com/hyperfollow/choosingclarity/talk-talk-demo-version-"
+                target="_blank"
+              >
+                Talk Talk (Demo)
+              </Anchor>{' '}
+              released!!
             </ListItem>
             <ListItem>
               <Text fw={700} span>
